@@ -39,11 +39,10 @@ func logMessage(level LogLevel, color string, levelStr string, format string, v 
 	}
 
 	msg := fmt.Sprintf(format, v...)
-	output := fmt.Sprintf("%s [%-5s] %s%s", color, levelStr, ColorReset, msg)
+	output := fmt.Sprintf("%s [%-5s] %s%s", color, levelStr, msg, ColorReset)
 
 	if level == LevelFatal {
 		log.Fatalln(output)
-		os.Exit(1)
 	} else {
 		log.Println(output)
 	}
